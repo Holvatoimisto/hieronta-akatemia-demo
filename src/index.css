@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 24% 96%;
+    --foreground: 215 28% 17%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 28% 17%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 28% 17%;
+    --primary: 216 45% 15%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 214 52% 25%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 214 32% 91%;
+    --muted-foreground: 210 15% 42%;
+    --accent: 38 29% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 38 29% 50%;
+    --radius: 0.5rem;
+
+    /* Premium palette */
+    --color-kingly: #F5F1E9;
+    --color-charcoal: #0E2E52;
+    --color-iron: #1F2937;
+    --color-white: #FFFFFF;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-iron);
+    background-color: var(--color-kingly);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2 {
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+  }
+
+  h3, h4, h5, h6 {
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+  }
+}
+
+@layer utilities {
+  .font-cormorant {
+    font-family: 'Newsreader', serif;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .text-charcoal {
+    color: var(--color-charcoal);
+  }
+
+  .text-kingly {
+    color: var(--color-kingly);
+  }
+
+  .text-iron {
+    color: var(--color-iron);
+  }
+
+  .bg-charcoal {
+    background-color: var(--color-charcoal);
+  }
+
+  .bg-kingly {
+    background-color: var(--color-kingly);
+  }
+
+  .bg-iron {
+    background-color: var(--color-iron);
+  }
+
+  .border-charcoal {
+    border-color: var(--color-charcoal);
+  }
+
+  .border-iron {
+    border-color: var(--color-iron);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
