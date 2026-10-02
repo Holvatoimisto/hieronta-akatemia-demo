@@ -303,11 +303,11 @@ export function ChiropractorTemplate() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.75 }}
-              className="flex flex-wrap items-center justify-start gap-x-4 gap-y-2 font-inter text-[12px] text-white/85 tracking-[0.04em]"
+              className="flex flex-col items-start gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4 font-inter text-[12px] text-white/85 tracking-[0.04em]"
             >
               {heroStats.map((stat, i) => (
-                <span key={stat} className="inline-flex items-center gap-4">
-                  {i > 0 && <span className="text-white/30" aria-hidden="true">•</span>}
+                <span key={stat} className="inline-flex items-center gap-2 sm:gap-4">
+                  <span className={`text-white/30 ${i === 0 ? 'sm:hidden' : ''}`} aria-hidden="true">•</span>
                   <span className="text-white/75">{stat}</span>
                 </span>
               ))}
