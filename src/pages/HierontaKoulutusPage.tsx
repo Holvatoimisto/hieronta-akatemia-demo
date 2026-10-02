@@ -190,7 +190,7 @@ export function HierontaKoulutusPage() {
       </section>
 
       {/* Koulutuksen sisältö */}
-      <section id="sisalto" className="bg-white py-14 md:py-20 px-6 md:px-12">
+      <section id="sisalto" className="bg-white py-14 md:py-20 px-6 md:px-12 scroll-mt-16 md:scroll-mt-20">
         <div className="max-w-[920px] mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12 md:mb-14">
@@ -212,7 +212,7 @@ export function HierontaKoulutusPage() {
       </section>
 
       {/* Ammattitutkinto */}
-      <section id="tutkinto" className="bg-[#F5F1E9] py-14 md:py-20 px-6 md:px-12">
+      <section id="tutkinto" className="bg-[#F5F1E9] py-14 md:py-20 px-6 md:px-12 scroll-mt-16 md:scroll-mt-20">
         <div className="max-w-[1000px] mx-auto">
           <ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -295,7 +295,7 @@ export function HierontaKoulutusPage() {
       </section>
 
       {/* Jatkokoulutukset */}
-      <section id="jatkokoulutukset" className="bg-white py-14 md:py-20 px-6 md:px-12">
+      <section id="jatkokoulutukset" className="bg-white py-14 md:py-20 px-6 md:px-12 scroll-mt-16 md:scroll-mt-20">
         <div className="max-w-[920px] mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12 md:mb-14">
@@ -338,9 +338,11 @@ export function HierontaKoulutusPage() {
                       {openFaqIndex === i ? <Minus size={16} strokeWidth={1.5} /> : <Plus size={16} strokeWidth={1.5} />}
                     </span>
                   </button>
-                  <div className="overflow-hidden transition-all duration-[400ms] ease-out" style={{ maxHeight: openFaqIndex === i ? '260px' : '0px', opacity: openFaqIndex === i ? 1 : 0 }}>
-                    <div className="font-inter text-[14px] text-[#1F2937] leading-[1.75] pb-5 md:pb-6 max-w-[540px]">
-                      {faq.answer}
+                  <div className={`grid transition-all duration-[400ms] ease-out ${openFaqIndex === i ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                    <div className="overflow-hidden">
+                      <div className="font-inter text-[14px] text-[#1F2937] leading-[1.75] pb-5 md:pb-6 max-w-[540px]">
+                        {faq.answer}
+                      </div>
                     </div>
                   </div>
                 </div>

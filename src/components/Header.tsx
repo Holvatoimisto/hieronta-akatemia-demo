@@ -105,7 +105,7 @@ export function Header() {
         <div className="min-[1400px]:hidden flex items-center gap-2 relative z-10">
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="text-[#FFFFFF] transition-colors bg-transparent border-none cursor-pointer"
+            className="w-11 h-11 -mr-2 inline-flex items-center justify-center text-[#FFFFFF] transition-colors bg-transparent border-none cursor-pointer"
             aria-label={mobileOpen ? 'Sulje valikko' : 'Avaa valikko'}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -118,7 +118,7 @@ export function Header() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="min-[1400px]:hidden absolute top-full left-0 right-0 bg-[#0E2E52] border-t border-white/[0.08] px-5 py-6"
+          className="min-[1400px]:hidden absolute top-full left-0 right-0 max-h-[calc(100dvh-60px)] md:max-h-[calc(100dvh-68px)] overflow-y-auto overscroll-contain bg-[#0E2E52] border-t border-white/[0.08] px-5 py-6"
         >
           <Link to="/" onClick={() => setMobileOpen(false)} className="block font-inter text-[14px] font-semibold uppercase tracking-wider text-[#FFFFFF]/90 py-3 border-b border-[#E2E8F0]/[0.06]">Etusivu</Link>
           {navLinks.map((link) => (

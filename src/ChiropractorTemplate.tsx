@@ -282,19 +282,19 @@ export function ChiropractorTemplate() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.55 }}
-              className="flex flex-col sm:flex-row items-center gap-4 mb-8"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8"
             >
               <a
                 href={businessInfo.applyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex min-h-[52px] items-center justify-center px-8 py-3 rounded-lg font-inter text-[14px] font-semibold tracking-wide cursor-pointer ${bookingGlassOnDarkClasses}`}
+                className={`inline-flex w-full sm:w-auto min-h-[52px] items-center justify-center px-8 py-3 rounded-lg font-inter text-[14px] font-semibold tracking-wide cursor-pointer ${bookingGlassOnDarkClasses}`}
               >
                 Hae koulutukseen
               </a>
               <Link
                 to="/hierontakoulutus"
-                className="inline-flex min-h-[52px] items-center justify-center px-7 py-3 rounded-lg font-inter text-[14px] font-medium tracking-wide text-white/85 border border-white/20 hover:text-white hover:border-white/35 transition-colors duration-300"
+                className="inline-flex w-full sm:w-auto min-h-[52px] items-center justify-center px-7 py-3 rounded-lg font-inter text-[14px] font-medium tracking-wide text-white/85 border border-white/20 hover:text-white hover:border-white/35 transition-colors duration-300"
               >
                 Tutustu koulutukseen
               </Link>
@@ -366,7 +366,7 @@ export function ChiropractorTemplate() {
       </section>
 
       {/* Education overview */}
-      <section id="koulutus" className="bg-white pt-12 md:pt-16 pb-16 md:pb-20 px-6 md:px-12">
+      <section id="koulutus" className="bg-white pt-12 md:pt-16 pb-16 md:pb-20 px-6 md:px-12 scroll-mt-16 md:scroll-mt-20">
         <div className="max-w-[1240px] mx-auto">
           <ScrollReveal>
             <div className="text-center mb-10 md:mb-12">
@@ -432,7 +432,7 @@ export function ChiropractorTemplate() {
       </section>
 
       {/* Kenelle koulutus sopii */}
-      <section id="opiskelijaksi" className="bg-white py-10 md:py-14 px-6 md:px-12">
+      <section id="opiskelijaksi" className="bg-white py-10 md:py-14 px-6 md:px-12 scroll-mt-16 md:scroll-mt-20">
         <div className="max-w-[920px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <ScrollReveal delay={0.08}>
@@ -540,7 +540,7 @@ export function ChiropractorTemplate() {
       )}
 
       {/* Student stories */}
-      <section id="kokemukset" className="relative bg-[#0E2E52] pt-20 md:pt-28 pb-14 md:pb-16 px-6 md:px-12 overflow-hidden">
+      <section id="kokemukset" className="relative bg-[#0E2E52] pt-20 md:pt-28 pb-14 md:pb-16 px-6 md:px-12 overflow-hidden scroll-mt-16 md:scroll-mt-20">
         <div className="absolute inset-0" style={{ ...noiseStyle, opacity: 0.02 }} />
         <div className="relative max-w-[1200px] mx-auto">
           <ScrollReveal>
@@ -554,13 +554,13 @@ export function ChiropractorTemplate() {
           <ScrollReveal delay={0.1}>
             <div className="relative">
               <div className="flex items-center gap-3 md:gap-4">
-                <button onClick={prevReview} aria-label="Edellinen tarina" className="shrink-0 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-colors bg-transparent cursor-pointer">
+                <button onClick={prevReview} aria-label="Edellinen tarina" className="hidden md:flex shrink-0 w-10 h-10 rounded-full border border-white/10 items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-colors bg-transparent cursor-pointer">
                   <ChevronLeft size={18} strokeWidth={1.5} />
                 </button>
 
                 <div className="flex-1 flex gap-5 md:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 md:max-w-[95%] md:mx-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                   {visibleReviews.map((story, i) => (
-                    <div key={`${reviewIndex}-${i}`} className="flex-shrink-0 w-[260px] md:w-auto md:flex-1 md:basis-0 snap-start">
+                    <div key={`${reviewIndex}-${i}`} className="flex-shrink-0 w-full sm:w-[260px] md:w-auto md:flex-1 md:basis-0 snap-start">
                       <div className="bg-[#16436F] rounded-xl p-7 md:p-9 border border-white/[0.05] shadow-[0_8px_24px_rgba(0,0,0,0.16)] h-full flex flex-col">
                         <p className="font-inter text-[14px] text-[#FFFFFF]/90 leading-[1.75] italic flex-1">&ldquo;{story.text}&rdquo;</p>
                         <div className="flex items-center gap-3 mt-5 pt-5 border-t border-[#FFFFFF]/[0.06]">
@@ -577,7 +577,16 @@ export function ChiropractorTemplate() {
                   ))}
                 </div>
 
-                <button onClick={nextReview} aria-label="Seuraava tarina" className="shrink-0 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-colors bg-transparent cursor-pointer">
+                <button onClick={nextReview} aria-label="Seuraava tarina" className="hidden md:flex shrink-0 w-10 h-10 rounded-full border border-white/10 items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-colors bg-transparent cursor-pointer">
+                  <ChevronRight size={18} strokeWidth={1.5} />
+                </button>
+              </div>
+
+              <div className="flex md:hidden items-center justify-center gap-4 mt-4">
+                <button onClick={prevReview} aria-label="Edellinen tarina" className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-colors bg-transparent cursor-pointer">
+                  <ChevronLeft size={18} strokeWidth={1.5} />
+                </button>
+                <button onClick={nextReview} aria-label="Seuraava tarina" className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-colors bg-transparent cursor-pointer">
                   <ChevronRight size={18} strokeWidth={1.5} />
                 </button>
               </div>
@@ -587,7 +596,7 @@ export function ChiropractorTemplate() {
       </section>
 
       {/* Team */}
-      <section id="opettajat" className="relative bg-[#0A2140] pt-20 md:pt-24 pb-16 md:pb-20 px-6 md:px-12 overflow-hidden">
+      <section id="opettajat" className="relative bg-[#0A2140] pt-20 md:pt-24 pb-16 md:pb-20 px-6 md:px-12 overflow-hidden scroll-mt-16 md:scroll-mt-20">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/assets/ha/kampin_service_blue_text_bg.jpg)' }} aria-hidden="true" />
         <div className="absolute inset-0 bg-[#0A2140]/80" aria-hidden="true" />
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#0E2E52_0%,rgba(14,46,82,0)_200px)]" aria-hidden="true" />
@@ -740,7 +749,7 @@ export function ChiropractorTemplate() {
       )}
 
       {/* FAQ */}
-      <section id="ukk" className="bg-white pt-16 md:pt-20 pb-10 md:pb-14 px-6 md:px-12">
+      <section id="ukk" className="bg-white pt-16 md:pt-20 pb-10 md:pb-14 px-6 md:px-12 scroll-mt-16 md:scroll-mt-20">
         <div className="max-w-[640px] mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12 md:mb-14">
@@ -759,9 +768,11 @@ export function ChiropractorTemplate() {
                       {openFaqIndex === i ? <Minus size={16} strokeWidth={1.5} /> : <Plus size={16} strokeWidth={1.5} />}
                     </span>
                   </button>
-                  <div className="overflow-hidden transition-all duration-[400ms] ease-out" style={{ maxHeight: openFaqIndex === i ? '260px' : '0px', opacity: openFaqIndex === i ? 1 : 0 }}>
-                    <div className="font-inter text-[14px] text-[#1F2937] leading-[1.75] pb-5 md:pb-6 max-w-[540px]">
-                      {faq.answer}
+                  <div className={`grid transition-all duration-[400ms] ease-out ${openFaqIndex === i ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                    <div className="overflow-hidden">
+                      <div className="font-inter text-[14px] text-[#1F2937] leading-[1.75] pb-5 md:pb-6 max-w-[540px]">
+                        {faq.answer}
+                      </div>
                     </div>
                   </div>
                 </div>
